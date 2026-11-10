@@ -3,9 +3,9 @@
 ## Intent
 
 Fabric is a personal design system (`design-preview/systems/DESIGN-fabric.md`)
-built after the colour discipline of Dieter Rams' Braun products: near-neutral
-grounds, one signal orange `#ef6306`, colour only where it signals. This
-project turns it into a theme ecosystem modelled on Rosé Pine
+built after the color discipline of Dieter Rams' Braun products: near-neutral
+grounds, one signal orange `#ef6306`, color only where it signals. This
+project turns it into a theme ecosystem modeled on Rosé Pine
 (`github.com/rose-pine`, `rosepinetheme.com`): a brand hub repo, one repo per
 app port, and a site that lists the ports and documents the palette.
 
@@ -31,7 +31,7 @@ OS appearance.
 - Submitting Fabric to iTerm2-Color-Schemes (which would make it built into
   Ghostty). Later.
 - Photography and "Made with" collections.
-- A GitHub organisation. Repos live on the author's account and migrate later.
+- A GitHub organization. Repos live on the author's account and migrate later.
 
 ## Anti-goals
 
@@ -39,7 +39,7 @@ OS appearance.
   site component may use it except the palette page that documents it.
 - Two hand-maintained copies of the palette. Rosé Pine keeps one in the site
   and one in Bloom's Go source; Fabric has one source.
-- Accent-coloured text. `#ef6306` is 3.06:1 on the dawn canvas; it is a fill,
+- Accent-colored text. `#ef6306` is 3.06:1 on the dawn canvas; it is a fill,
   edge, ring or underline, never type (see `DESIGN-fabric.md` → Accent).
 
 ## Decided
@@ -61,14 +61,14 @@ All public, on GitHub user `ozzycodes2`:
 | `fabric-site` | The website | `rose-pine-site` |
 | `fabric-ghostty` | The Ghostty port | `rose-pine/ghostty` |
 
-The repos migrate to an organisation later. GitHub redirects transferred
+The repos migrate to an organization later. GitHub redirects transferred
 repos, so links keep working; the site's discovery owner is one constant.
 
 ### Terminal palette
 
 A new `terminal` group in `DESIGN-fabric.md`, separate from the UI roles,
-values per variant. Chosen direction: "Braun catalogue" — red, yellow and
-green from Braun signal colours; blue, magenta and cyan from the 1970s colour
+values per variant. Chosen direction: "Braun catalog" — red, yellow and
+green from Braun signal colors; blue, magenta and cyan from the 1970s color
 products (KF 20, HLD dryers), held below the signal hues' saturation.
 
 | ANSI | Source | Dusk | Dawn |
@@ -89,21 +89,21 @@ products (KF 20, HLD dryers), held below the signal hues' saturation.
 - Background is `canvas`, foreground is `ink`. Cursor is `primary`, cursor
   text `on-primary`. Selection is `primary` with `on-primary` text, matching
   Fabric's `selection` component.
-- Every ANSI colour 1–15 clears 4.5:1 on its variant's canvas. ANSI 0 is
+- Every ANSI color 1–15 clears 4.5:1 on its variant's canvas. ANSI 0 is
   exempt (it is a background tone by design).
 
 ### Palette source of truth
 
 `fabric-theme/DESIGN-fabric.md` is canonical. A build script in `fabric-theme`
 parses its front matter and emits `dist/palette.json` (both variants, UI roles
-and terminal group, hex/rgb/hsl per colour). Ports and the site consume
-`palette.json`; nothing else re-declares colour values.
+and terminal group, hex/rgb/hsl per color). Ports and the site consume
+`palette.json`; nothing else re-declares color values.
 
 - The front matter's `themes.dark` / `themes.light` keys become
   `themes.dusk` / `themes.dawn`. `design-preview/build.py` reads theme names
   generically, so its copy keeps working.
 - `terminal` is a top-level front-matter map keyed `dusk` / `dawn`.
-- Every UI role and terminal colour gets a short `use:` line in the front
+- Every UI role and terminal color gets a short `use:` line in the front
   matter, written in dusk/dawn terms and carried into `palette.json`. The
   palette pages show it. The document's body prose is not UI copy and is
   left as written.
@@ -139,8 +139,8 @@ file is out of scope.
   - Home: what Fabric is, the two variants, port count, links onward.
   - Themes: searchable directory with category filter; one page per port with
     install link, contributors and last update.
-  - Palette: every UI role and terminal colour for both variants, copy as
-    hex/rgb/hsl, a CSS export, and one page per colour stating its use.
+  - Palette: every UI role and terminal color for both variants, copy as
+    hex/rgb/hsl, a CSS export, and one page per color stating its use.
   - Create: markdown guides — Create a port, Contributing, Code of Conduct.
   - Submit: `/new` redirects to a GitHub issue form in `fabric-site`.
 - **Discovery:** a daily GitHub Action in `fabric-site` lists `ozzycodes2`
@@ -158,7 +158,7 @@ file is out of scope.
 
 - Unit tests (Vitest) for the palette build, the Ghostty build, and the sync
   script, at 90% coverage of that code.
-- A contrast test fails the palette build if any terminal colour 1–15 falls
+- A contrast test fails the palette build if any terminal color 1–15 falls
   under 4.5:1 on its canvas, or any ink tier under 4.5:1 on any surface of its
   own variant (the claim `DESIGN-fabric.md` → Text makes).
 - Dawn `ink-subtle` moves from `#616161` to `#606060`. `#616161` measures
@@ -168,7 +168,7 @@ file is out of scope.
 
 ## Left to the builder
 
-- Bright ANSI 9–14: one lightness step from each base colour (lighter on dusk,
+- Bright ANSI 9–14: one lightness step from each base color (lighter on dusk,
   darker on dawn), held to 4.5:1.
 - Visual layout of every site page, within Fabric's rules and the spirit of
   the reference sites. Show the home page as a mockup before building the

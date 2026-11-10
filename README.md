@@ -5,7 +5,7 @@
   </picture>
 </p>
 
-<p align="center">Braun-quiet colour for the classy minimalist</p>
+<p align="center">Braun-quiet color for the classy minimalist</p>
 
 <p align="center">
   <a href="https://github.com/ozzycodes2/fabric-site">Themes</a>
@@ -15,7 +15,7 @@
   <a href="https://github.com/ozzycodes2/fabric-site">Contributing</a>
 </p>
 
-Fabric is a colour theme after Dieter Rams' Braun products, in two variants:
+Fabric is a color theme after Dieter Rams' Braun products, in two variants:
 dusk and dawn.
 
 ## Resources

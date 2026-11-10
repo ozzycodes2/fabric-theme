@@ -405,7 +405,7 @@ entry below, which is the check v2 brought to the merge and the one Mine failed.
 | Conflict | Resolution | Why |
 |---|---|---|
 | Display weight: Mine 500, v2 600 | 600 on display, headline, heading | Mine chose 500 for a dark ground and v2 600 for a light one. One scale has to survive both, and 600 is the value that does — 500 is the one that goes thin on #010102, which was Mine's own stated fear |
-| Accent hue: lavender vs signal red | Neither — #ef6306 in both themes | The only role where the two lineages disagreed about hue rather than about brightness, which makes it the only one no measurement can settle: both clear 4:1 on both grounds, so neither is wrong. What is wrong is shipping both, because a hue that changes with the reader's OS setting is not a brand. Between the two, v2's red is already an orange-red descended from Braun's lit-indicator and Mine's lavender is product-chrome blue with no claim on a personal site, so the shared value is the warm one — taken up to full saturation, where a signal colour belongs, rather than down to the luminance that would have let it keep setting type |
+| Accent hue: lavender vs signal red | Neither — #ef6306 in both themes | The only role where the two lineages disagreed about hue rather than about brightness, which makes it the only one no measurement can settle: both clear 4:1 on both grounds, so neither is wrong. What is wrong is shipping both, because a hue that changes with the reader's OS setting is not a brand. Between the two, v2's red is already an orange-red descended from Braun's lit-indicator and Mine's lavender is product-chrome blue with no claim on a personal site, so the shared value is the warm one — taken up to full saturation, where a signal color belongs, rather than down to the luminance that would have let it keep setting type |
 | `pill` and `full`, both 9999px | One token, `{rounded.full}` | Two names for one value is what v2's token check exists to catch. Mine's components were re-pointed |
 | Spacing names colliding at different values | Mine's eight names win | v2's `xs` 4 → `{spacing.xxs}`, `sm` 8 → `{spacing.xs}`, `xl` 40 → `{spacing.xxl}` 48, `section` 120 → `{spacing.section}` 80 |
 | v2's third-ink-tier ban | Three tiers, light values pulled down to clear it | `{colors.ink-subtle}` at #606060 measures 4.76:1 on `{colors.surface-4}`, the deepest light surface. v2's objection was to the value, not the tier |
@@ -451,13 +451,13 @@ Between the two inherited hues the warm one has the better claim: v2's red is an
 orange-red descended from Braun's lit-indicator, which both lineages can own,
 where the lavender is product-chrome blue borrowed from an issue tracker. The
 value is that warmth at full saturation rather than at the deeper luminance a
-text-capable accent would need — a signal colour that has been darkened until it
-can set body type is no longer signalling.
+text-capable accent would need — a signal color that has been darkened until it
+can set body type is no longer signaling.
 
 The consequence is the rule below it: **the accent carries dark text, and never
 is text.** #171717 on primary measures 5.51:1 and white measures 3.25:1, so
 `{colors.on-primary}` is the ink. And at 2.96:1 on the light canvas and 3.25:1 on
-`{colors.surface-1}` the accent is at most an object colour, never a word, which
+`{colors.surface-1}` the accent is at most an object color, never a word, which
 is why `text-link-emphasis` is ink with an accent underline and
 `button-secondary-pill` is ink in an accent-edged capsule. Both used to set
 their label in the accent. Neither can now.
@@ -536,7 +536,7 @@ tracking and line heights; v2's weight on the three display steps.
   dark ground cannot carry, and the scale has to work on both.
 - **One family change, and it is the monospace.** SF Mono resolves natively on
   macOS and falls back through `ui-monospace`. Inter does every other step: an
-  open licence that actually loads.
+  open license that actually loads.
 - **Body leading is 1.65** at a 592px measure, roughly 70 characters a line.
 - **Two steps no longer exist.** v2's 13px caption folded into the 14px one, and
   its five-step scale gained `headline`, `subhead` and `eyebrow`. Nothing in v2
@@ -639,7 +639,7 @@ states live in `button-primary-focus` and `button-primary-active`.
 
 **`button-secondary-pill`** — `{colors.surface-1}` fill, `{colors.ink}` text,
 1px `{colors.primary}` edge. The accent is the border, not the label: at 3.25:1
-on `{colors.surface-1}` it is an object colour, not a text colour.
+on `{colors.surface-1}` it is an object color, not a text color.
 
 **`button-inverse-utility`** — `{colors.inverse-canvas}` fill,
 `{colors.inverse-ink}` text, `{rounded.sm}`. The only element that inverts
@@ -746,7 +746,7 @@ reduced-motion viewer paints.
 Where the medium carries one bit of alpha, as a GIF does, that rules out opacity
 entirely — a half-opaque pixel is absent, so a fade is a blink and a blink is an
 element animating in. Two things are left. Translation, capped as above. And a
-marching `stroke-dashoffset`, which a single-colour figure needs because
+marching `stroke-dashoffset`, which a single-color figure needs because
 illumination has no second tone to read in and must read by stroke weight
 instead: the lit path is a heavier copy of a line drawn unconditionally
 underneath, so the figure is complete at every instant and the dash only adds to
@@ -757,7 +757,7 @@ fail.
 The 24px cap exists so that a loop joined halfway looks like a loop and not like
 a thing that has slid out of place. A periodic field is the one translation it
 measures wrongly: a scatter of marks repeating every *p* across the figure,
-translated by exactly *p* over the loop, puts every mark where its neighbour
+translated by exactly *p* over the loop, puts every mark where its neighbor
 stood, so the last frame is the first and nothing enters, leaves or jumps —
 regardless of how large *p* is. Such a field may travel its own period and no
 other distance. Capped at 24px it would not drift, it would wobble; translated
@@ -768,7 +768,7 @@ counterpart one period behind it.
 
 ## Terminal
 
-The `terminal` group is the sixteen-colour ANSI palette for ports only: terminal
+The `terminal` group is the sixteen-color ANSI palette for ports only: terminal
 emulators, editors and anything else that needs more than one chroma. No site or
 UI component may use it, except the page that documents it. The UI itself keeps
 its single accent.
@@ -777,13 +777,13 @@ Background is `{colors.canvas}` and foreground is `{colors.ink}`. Cursor is
 `{colors.primary}` with `{colors.on-primary}` text; selection is `{colors.primary}`
 with `{colors.on-primary}` text.
 
-Ten colours are declared: `black`, `red`, `green`, `yellow`, `blue`, `magenta`,
+Ten colors are declared: `black`, `red`, `green`, `yellow`, `blue`, `magenta`,
 `cyan`, `white`, `bright-black` and `bright-white`. The other six are derived by
 the build, not declared. Bright red, green, yellow, blue, magenta and cyan each
-take their base colour's HSL lightness shifted 8 points, up on dusk and down on
+take their base color's HSL lightness shifted 8 points, up on dusk and down on
 dawn, then keep stepping 2 points in the same direction until the result reaches
 4.5:1 against `{colors.canvas}` or lightness hits 0 or 100. Each inherits its
-base colour's `use`. On dawn, `black` is a light surface and `white` is ink, so
+base color's `use`. On dawn, `black` is a light surface and `white` is ink, so
 text printed in `white` stays legible.
 
 ## Do's and Don'ts

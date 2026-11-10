@@ -9,7 +9,7 @@ describe("parseHex", () => {
     expect(c.hsl).toEqual([24, 95, 48]);
   });
 
-  it("handles greys and hue sectors", () => {
+  it("handles grays and hue sectors", () => {
     expect(parseHex("#808080", "x").hsl).toEqual([0, 0, 50]);
     expect(parseHex("#00ff00", "x").hsl).toEqual([120, 100, 50]);
     expect(parseHex("#0000ff", "x").hsl).toEqual([240, 100, 50]);

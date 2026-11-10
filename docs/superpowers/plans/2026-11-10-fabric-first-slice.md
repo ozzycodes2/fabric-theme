@@ -14,8 +14,8 @@
 
 - Variant names are `dusk` and `dawn`. `dark`/`light` appear only where host syntax requires them (Ghostty `theme = dark:…,light:…`, CSS `prefers-color-scheme`, the `appearance` field consumed by host apps).
 - Variant ids `fabric-dusk`, `fabric-dawn`; display names `Fabric Dusk`, `Fabric Dawn`.
-- Accent `#ef6306` is shared by both variants and never sets text colour.
-- Every terminal colour 1–15 ≥ 4.5:1 on its variant's canvas; every ink tier ≥ 4.5:1 on canvas and `surface-1`…`surface-4` of its own variant. Ratios are compared unrounded.
+- Accent `#ef6306` is shared by both variants and never sets text color.
+- Every terminal color 1–15 ≥ 4.5:1 on its variant's canvas; every ink tier ≥ 4.5:1 on canvas and `surface-1`…`surface-4` of its own variant. Ratios are compared unrounded.
 - Dawn `ink-subtle` is `#606060` (was `#616161`).
 - Repos are public on GitHub user `ozzycodes2`: `fabric-theme`, `fabric-ghostty`, `fabric-site`. All repo paths below are under `~/personal/`.
 - Commit messages: `<prefix>: <lowercase message>`, prefixes from the conventional set; no ticket prefix.
@@ -24,7 +24,7 @@
 
 ## Review Focus
 
-1. **A front-matter hex that is shorthand, upper-case or malformed** (`#FFF`, `#EF6306`, `ef6306`). Expected: upper-case normalised to lower-case; anything not `#` + 6 hex digits fails the build with an error naming the token path. Pinned in Task 2.
+1. **A front-matter hex that is shorthand, upper-case or malformed** (`#FFF`, `#EF6306`, `ef6306`). Expected: upper-case normalized to lower-case; anything not `#` + 6 hex digits fails the build with an error naming the token path. Pinned in Task 2.
 2. **A variant missing a role the other declares.** Expected: the build fails naming the role and variant, rather than emitting `undefined` into `palette.json`. Pinned in Task 2.
 3. **A reader whose OS is dawn but who chose dusk on a previous visit.** Expected: dusk paints on first frame with no flash; with JS disabled the site follows `prefers-color-scheme`. Pinned in Task 6.
 4. **Copy-to-clipboard where the Clipboard API is unavailable or rejected.** Expected: no "Copied" confirmation; the value is selected for manual copy. Pinned in Task 7.
@@ -56,7 +56,7 @@ uses:
 - [ ] **Step 2:** Copy the design document. Rename `themes.dark` → `themes.dusk`, `themes.light` → `themes.dawn`. Set dawn `ink-subtle` to `#606060` and update every prose mention of `#616161` and of its `4.50:1` ratio to `#606060` / `4.54:1`.
 - [ ] **Step 3:** Add the `terminal` map with the spec's table values (bright-black dawn `#606060`). Bright red…cyan are derived in Task 2, not declared.
 - [ ] **Step 4:** Add the `uses` map. UI roles: one line each distilled from the document's Colors section, in dusk/dawn terms. Terminal: `black` "Background tone for blocks and badges", `red` "Errors, deletions, failing tests", `green` "Success, additions, passing tests", `yellow` "Warnings, modified files", `blue` "Directories, links, info", `magenta` "Keywords, branches, special files", `cyan` "Hunks, types, secondary info", `white` "Secondary text", `bright-black` "Comments, hints, autosuggestions", `bright-white` "Emphasised text".
-- [ ] **Step 5:** Add a short `## Terminal` section to the body stating the terminal palette is for ports only and documenting the bright-colour rule from Task 2.
+- [ ] **Step 5:** Add a short `## Terminal` section to the body stating the terminal palette is for ports only and documenting the bright-color rule from Task 2.
 - [ ] **Step 6:** `pnpm install`; commit `docs: add canonical fabric design document`.
 
 ### Task 2: palette build with contrast gate
@@ -98,11 +98,11 @@ uses:
 **Files:**
 - Create: `fabric-theme/README.md`, `fabric-theme/assets/wordmark.svg`, `fabric-theme/.github/ISSUE_TEMPLATE/config.yml`
 
-- [ ] **Step 1:** README in the Rosé Pine hub format: wordmark, one-line description ("Braun-quiet colour for the classy minimalist" is a placeholder the author may replace), links to Themes / Palette / Contributing on the site, a Resources list, a Contributing paragraph pointing at the site's submission form. Site links point at `https://github.com/ozzycodes2/fabric-site` until the site is hosted.
+- [ ] **Step 1:** README in the Rosé Pine hub format: wordmark, one-line description ("Braun-quiet color for the classy minimalist" is a placeholder the author may replace), links to Themes / Palette / Contributing on the site, a Resources list, a Contributing paragraph pointing at the site's submission form. Site links point at `https://github.com/ozzycodes2/fabric-site` until the site is hosted.
 - [ ] **Step 2:** `wordmark.svg`: "fabric" set in Inter 600, `#171717`, with a 6px `#ef6306` square as the dot of the "i". Accent on an object, not on type.
 - [ ] **Step 3:** Issue config: `blank_issues_enabled: false`, one contact link "Port submission" → `https://github.com/ozzycodes2/fabric-site/issues/new?template=port.yaml`.
 - [ ] **Step 4:** Commit `docs: add readme, wordmark and issue config`.
-- [ ] **Step 5:** `gh repo create ozzycodes2/fabric-theme --public --source ~/personal/fabric-theme --push --description "Braun-quiet colour, in dusk and dawn"`; `git -C ~/personal/fabric-theme tag v0.1.0 && git -C ~/personal/fabric-theme push origin v0.1.0`.
+- [ ] **Step 5:** `gh repo create ozzycodes2/fabric-theme --public --source ~/personal/fabric-theme --push --description "Braun-quiet color, in dusk and dawn"`; `git -C ~/personal/fabric-theme tag v0.1.0 && git -C ~/personal/fabric-theme push origin v0.1.0`.
 - [ ] **Step 6:** Verify `curl -sf https://raw.githubusercontent.com/ozzycodes2/fabric-theme/v0.1.0/dist/palette.json | jq '.terminal | length'` prints `16`.
 
 ### Task 4: `fabric-ghostty`
@@ -146,7 +146,7 @@ uses:
 
 - [ ] **Step 1: Write failing tests.** `tokensCss`: contains `--canvas: #010102` inside the dusk block and `--canvas: #f8f8f8` inside the dawn block; contains `--term-red`; has an `@media (prefers-color-scheme: light)` block applying dawn when `<html>` has no `data-variant`; `[data-variant="dusk"]` and `[data-variant="dawn"]` blocks override media. The variant script, evaluated in a stub with `localStorage` `fabric-variant=dusk` and a `matchMedia` reporting light, sets `data-variant="dusk"`; with storage empty it leaves the attribute unset; with `localStorage` throwing it leaves the attribute unset.
 - [ ] **Step 2:** Run `pnpm vitest run`; expect failure.
-- [ ] **Step 3:** Implement. `tokensCss` emits `--<ui-slug>` and `--term-<slug>` custom properties. `VariantScript` renders an inline `<script>` in `<head>` before paint. Tailwind v4 `@theme inline` in `globals.css` maps colours (`--color-canvas: var(--canvas)` …), radii, spacing and the eight type steps from `DESIGN-fabric.md`. Inter via `next/font/google` weights 400/500/600; mono stack `"SF Mono", ui-monospace, SFMono-Regular, Menlo, monospace`. Transitions 150ms `ease` on colour/background only, inside `prefers-reduced-motion: no-preference`.
+- [ ] **Step 3:** Implement. `tokensCss` emits `--<ui-slug>` and `--term-<slug>` custom properties. `VariantScript` renders an inline `<script>` in `<head>` before paint. Tailwind v4 `@theme inline` in `globals.css` maps colors (`--color-canvas: var(--canvas)` …), radii, spacing and the eight type steps from `DESIGN-fabric.md`. Inter via `next/font/google` weights 400/500/600; mono stack `"SF Mono", ui-monospace, SFMono-Regular, Menlo, monospace`. Transitions 150ms `ease` on color/background only, inside `prefers-reduced-motion: no-preference`.
 - [ ] **Step 4:** `pnpm vitest run --coverage` passes at ≥ 90% on `src/lib` and `src/components`; `pnpm build` succeeds.
 - [ ] **Step 5:** Commit `feat: scaffold site with fabric tokens and variant toggle`.
 
@@ -176,4 +176,4 @@ No hosting in this slice.
 - [ ] **Step 1:** `gh repo create ozzycodes2/fabric-site --public --source ~/personal/fabric-site --push --description "The Fabric theme site"`.
 - [ ] **Step 2:** Site links in `fabric-theme/README.md` point at `https://github.com/ozzycodes2/fabric-site` until the site is hosted; commit `docs: point readme at the site repo` and push.
 - [ ] **Step 3:** `pnpm --dir ~/personal/fabric-site build && pnpm --dir ~/personal/fabric-site dlx serve out -l 3000` in the background; confirm `/`, `/palette`, `/themes` return 200.
-- [ ] **Step 4:** Stop for feedback. Out of this slice, for the next plan: hosting, per-port and per-colour pages, Create guides, `/new` submission form, daily sync job, Ghostty screenshots.
+- [ ] **Step 4:** Stop for feedback. Out of this slice, for the next plan: hosting, per-port and per-color pages, Create guides, `/new` submission form, daily sync job, Ghostty screenshots.

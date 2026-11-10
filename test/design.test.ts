@@ -26,7 +26,7 @@ describe("parseDesign (real document)", () => {
     expect(real.terminal[8].name).toBe("Bright Black");
   });
 
-  it("gives every role a use, bright colours inheriting their base", () => {
+  it("gives every role a use, bright colors inheriting their base", () => {
     for (const r of [...real.ui, ...real.terminal]) expect(r.use).not.toBe("");
     const red = real.terminal[1];
     expect(real.terminal[9].use).toBe(red.use);
@@ -45,7 +45,7 @@ describe("parseDesign (fixtures)", () => {
     expect(() => parseDesign(bad, "0.1.0")).toThrow(/themes\.dawn: missing hairline/);
   });
 
-  it("throws when a terminal colour is missing", () => {
+  it("throws when a terminal color is missing", () => {
     const bad = doc.replace(/^( {4})cyan: "#22665f"\n/m, "");
     expect(() => parseDesign(bad, "0.1.0")).toThrow(/terminal\.dawn: missing cyan/);
   });
@@ -69,7 +69,7 @@ describe("parseDesign (fixtures)", () => {
     expect(m).toContain("canvas");
   });
 
-  it("reports a failing terminal colour", () => {
+  it("reports a failing terminal color", () => {
     const bad = doc.replace('red: "#e04a3c"', 'red: "#101010"');
     const msgs = checkContrast(parseDesign(bad, "0.1.0"));
     expect(msgs.some((s) => s.includes("red") && s.includes("dusk") && s.includes("#101010"))).toBe(true);
