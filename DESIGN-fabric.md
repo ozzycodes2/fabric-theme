@@ -29,14 +29,14 @@ themes:
     ink: "#171717"
     ink-muted: "#2c2c2c"
     ink-subtle: "#606060"
-    canvas: "#f8f8f8"
+    canvas: "#f4f4f4"
     surface-1: "#ffffff"
-    surface-2: "#ededed"
-    surface-3: "#e4e4e4"
-    surface-4: "#dbdbdb"
-    hairline: "#d9d9d9"
-    hairline-strong: "#c6c6c6"
-    hairline-tertiary: "#b3b3b3"
+    surface-2: "#e5e5e5"
+    surface-3: "#e1e1e1"
+    surface-4: "#e0e0e0"
+    hairline: "#d3d3d3"
+    hairline-strong: "#bebebe"
+    hairline-tertiary: "#b0b0b0"
     inverse-canvas: "#171717"
     inverse-ink: "#ffffff"
 
@@ -408,7 +408,7 @@ entry below, which is the check v2 brought to the merge and the one Mine failed.
 | Accent hue: lavender vs signal red | Neither — #ef6306 in both themes | The only role where the two lineages disagreed about hue rather than about brightness, which makes it the only one no measurement can settle: both clear 4:1 on both grounds, so neither is wrong. What is wrong is shipping both, because a hue that changes with the reader's OS setting is not a brand. Between the two, v2's red is already an orange-red descended from Braun's lit-indicator and Mine's lavender is product-chrome blue with no claim on a personal site, so the shared value is the warm one — taken up to full saturation, where a signal colour belongs, rather than down to the luminance that would have let it keep setting type |
 | `pill` and `full`, both 9999px | One token, `{rounded.full}` | Two names for one value is what v2's token check exists to catch. Mine's components were re-pointed |
 | Spacing names colliding at different values | Mine's eight names win | v2's `xs` 4 → `{spacing.xxs}`, `sm` 8 → `{spacing.xs}`, `xl` 40 → `{spacing.xxl}` 48, `section` 120 → `{spacing.section}` 80 |
-| v2's third-ink-tier ban | Three tiers, light values pulled down to clear it | `{colors.ink-subtle}` at #606060 measures 4.54:1 on `{colors.surface-4}`, the deepest light surface. v2's objection was to the value, not the tier |
+| v2's third-ink-tier ban | Three tiers, light values pulled down to clear it | `{colors.ink-subtle}` at #606060 measures 4.76:1 on `{colors.surface-4}`, the deepest light surface. v2's objection was to the value, not the tier |
 | Four duplicate components | Collapsed to one each | `card` absorbed `store-utility-card`; `global-nav` absorbed `site-nav`; `text-link` took v2's underline and Mine's accent moved to `text-link-emphasis`; `code-block` kept Mine's recessed treatment |
 
 v2's single `button` is the one entry dropped outright rather than merged.
@@ -419,10 +419,13 @@ has a store hero, a configurator and a pricing grid in it.
 ## Colors
 
 Every role below exists in both themes. The dusk theme is Mine's grounds and
-inks unchanged. The dawn theme carries six of v2's distinct values at their
-original roles — `{colors.canvas}` #f8f8f8, `{colors.surface-1}` #ffffff,
-`{colors.surface-2}` #ededed, `{colors.ink}` #171717, `{colors.hairline}`
-#d9d9d9, `{colors.inverse-ink}` #ffffff — with one move and seven additions. The
+inks unchanged. The dawn theme keeps three of v2's values at their original
+roles — `{colors.surface-1}` #ffffff, `{colors.ink}` #171717 and
+`{colors.inverse-ink}` #ffffff. v2's canvas #f8f8f8, surface-2 #ededed and
+hairline #d9d9d9 were re-set with the rest of the ladder, so each light surface
+and rule sits the same contrast from its canvas as its dark counterpart:
+`{colors.canvas}` #f4f4f4 puts `{colors.surface-1}` 1.10:1 above it, as on dusk.
+Beyond that there is one move and seven additions. The
 move is v2's muted ink, now #606060, which the merged ramp needed a darker tier above, so it
 went from `ink-muted` to `{colors.ink-subtle}`. The additions are `surface-3`,
 `surface-4`, `hairline-strong`, `hairline-tertiary`, `ink-muted`,
@@ -453,14 +456,14 @@ can set body type is no longer signalling.
 
 The consequence is the rule below it: **the accent carries dark text, and never
 is text.** #171717 on primary measures 5.51:1 and white measures 3.25:1, so
-`{colors.on-primary}` is the ink. And at 3.06:1 on the light canvas the accent
-clears the 3:1 floor for an object and misses the 4.5:1 floor for a word, which
+`{colors.on-primary}` is the ink. And at 2.96:1 on the light canvas and 3.25:1 on
+`{colors.surface-1}` the accent is at most an object colour, never a word, which
 is why `text-link-emphasis` is ink with an accent underline and
 `button-secondary-pill` is ink in an accent-edged capsule. Both used to set
 their label in the accent. Neither can now.
 
 - **Primary** ({colors.primary}) #ef6306: CTA fill, the pricing card's emphasis
-  edge, the link underline, the selection. 6.42:1 on the dark canvas, 3.06:1 on
+  edge, the link underline, the selection. 6.42:1 on the dark canvas, 2.96:1 on
   the light one — the asymmetry is real and it is the price of the saturation.
 - **Primary Hover** ({colors.primary-hover}) #fa6a07: the hovered and active CTA.
   One step brighter, because every use is a fill under dark text and 6.09:1 is
@@ -468,7 +471,7 @@ their label in the accent. Neither can now.
 - **Primary Focus** ({colors.primary-focus}) #d65905: the focus ring and the
   focused CTA's fill. The *darkest* step, and deliberately so — it is the only
   accent role that has to be seen against the ground rather than under text, and
-  3.74:1 on the light canvas is the best any step in this hue manages.
+  3.61:1 on the light canvas is the best any step in this hue manages.
 - **On Primary** ({colors.on-primary}) #171717: the ink, for text on all three
   fills. 5.51:1, 6.09:1 and 4.52:1 respectively.
 
@@ -512,8 +515,8 @@ through `-4` step down into it. That asymmetry is real and is in Known Gaps.
 
 All three clear 4.5:1 against every surface in their own theme. The light
 tiers are set so the ladder steps down by the same contrast in both themes:
-`{colors.ink-muted}` #2c2c2c reads 13.15:1 on the light canvas against 14.28:1
-on the dark one, and `{colors.ink-subtle}` #606060 reads 5.92:1 against 6.42:1.
+`{colors.ink-muted}` #2c2c2c reads 12.70:1 on the light canvas against 14.28:1
+on the dark one, and `{colors.ink-subtle}` #606060 reads 5.72:1 against 6.42:1.
 On `{colors.surface-1}` the pairs are 13.97 and 13.04, 6.29 and 5.86.
 
 ## Typography
@@ -635,8 +638,8 @@ bylines, figure captions.
 states live in `button-primary-focus` and `button-primary-active`.
 
 **`button-secondary-pill`** — `{colors.surface-1}` fill, `{colors.ink}` text,
-1px `{colors.primary}` edge. The accent is the border, not the label: at 3.06:1
-on light it is an object colour, not a text colour.
+1px `{colors.primary}` edge. The accent is the border, not the label: at 3.25:1
+on `{colors.surface-1}` it is an object colour, not a text colour.
 
 **`button-inverse-utility`** — `{colors.inverse-canvas}` fill,
 `{colors.inverse-ink}` text, `{rounded.sm}`. The only element that inverts
@@ -814,7 +817,7 @@ text printed in `white` stays legible.
   fill; as a surface it fights the whole theme.
 - Don't carry hierarchy with color alone. Size first, space second, color never
   by itself.
-- Don't add a fourth ink tier. The third already sits at 4.54:1 on the light
+- Don't add a fourth ink tier. The third already sits at 4.76:1 on the light
   theme's deepest surface.
 - Don't invent a radius between the six, or a spacing step between the eight.
 - Don't assume a value holds in both themes because it holds in one. Contrast
@@ -822,10 +825,12 @@ text printed in `white` stays legible.
 
 ## Known Gaps
 
-- **Seven light values are derived, not imported.** v2 declared eight colors
+- **Ten light values are derived, not imported.** v2 declared eight colors
   across seven distinct values; the merged vocabulary needs seventeen roles.
-  `{colors.surface-3}` #e4e4e4, `{colors.surface-4}` #dbdbdb,
-  `{colors.hairline-strong}` #c6c6c6, `{colors.hairline-tertiary}` #b3b3b3,
+  `{colors.canvas}` #f4f4f4, `{colors.surface-2}` #e5e5e5 and
+  `{colors.hairline}` #d3d3d3 replace v2's values to match the dark ladder's
+  contrast steps. `{colors.surface-3}` #e1e1e1, `{colors.surface-4}` #e0e0e0,
+  `{colors.hairline-strong}` #bebebe, `{colors.hairline-tertiary}` #b0b0b0,
   `{colors.ink-muted}` #2c2c2c, `{colors.primary-hover}` #fa6a07 and
   `{colors.primary-focus}` #d65905 were constructed to satisfy the component set
   and the contrast floor. They have not been looked at on a screen.
@@ -837,15 +842,17 @@ text printed in `white` stays legible.
   grounds, so unlike every other value in here it cannot be checked against a
   system that shipped it. The argument for it is arithmetic; nobody has looked
   at a CTA wearing it.
-- **`{colors.primary}` reads 3.06:1 on the light canvas.** That clears the 3:1
-  floor for an object and misses the 4.5:1 floor for a word, by a margin thin
-  enough that a nudge toward either pop or legibility crosses a line. The
-  constraint is documented rather than resolved: no component may set type in
+- **`{colors.primary}` reads 2.96:1 on the light canvas, under the 3:1 floor
+  for an object.** The canvas was darkened to #f4f4f4 so the light ladder steps
+  like the dark one, and that was chosen over the accent's margin. On
+  `{colors.surface-1}` it reads 3.25:1, so an accent edge or ring is safest on
+  a lifted surface. It misses the 4.5:1 floor for a word on every light ground.
+  The constraint is documented rather than resolved: no component may set type in
   the accent on light, and nothing enforces that beyond this sentence.
 - **The dark theme gets a brighter accent than it needs and the light theme a
   dimmer one than it wants.** One value on two grounds cannot be optimal on
   either — 6.42:1 against near-black is more separation than a fill needs, and
-  3.06:1 against off-white is the least it can have. A per-theme pair would fix
+  2.96:1 against off-white is less than it should have. A per-theme pair would fix
   the measurements and reintroduce the two-brands problem the shared accent
   exists to solve.
 - **The three display steps moved from 500 to 600 and have not been seen on

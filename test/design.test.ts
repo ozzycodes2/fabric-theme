@@ -40,7 +40,7 @@ describe("parseDesign (real document)", () => {
 
 describe("parseDesign (fixtures)", () => {
   it("throws when a role is missing", () => {
-    const bad = doc.replace(/^( {4})hairline: "#d9d9d9"\n/m, "");
+    const bad = doc.replace(/^( {4})hairline: "#d3d3d3"\n/m, "");
     expect(bad).not.toBe(doc);
     expect(() => parseDesign(bad, "0.1.0")).toThrow(/themes\.dawn: missing hairline/);
   });
