@@ -27,7 +27,7 @@ themes:
     primary-hover: "#fa6a07"
     primary-focus: "#d65905"
     ink: "#171717"
-    ink-muted: "#4d4d4d"
+    ink-muted: "#2c2c2c"
     ink-subtle: "#606060"
     canvas: "#f8f8f8"
     surface-1: "#ffffff"
@@ -60,7 +60,7 @@ terminal:
     blue: "#2f5a8f"
     magenta: "#8a4a5c"
     cyan: "#22665f"
-    white: "#4d4d4d"
+    white: "#2c2c2c"
     bright-black: "#606060"
     bright-white: "#171717"
 
@@ -510,8 +510,11 @@ through `-4` step down into it. That asymmetry is real and is in Known Gaps.
 - **Ink Muted** ({colors.ink-muted}): secondary prose, unselected chips, code.
 - **Ink Subtle** ({colors.ink-subtle}): footer links, capsule labels, metadata.
 
-All three clear 4.5:1 against every surface in their own theme, which is what
-sets the light tiers at #4d4d4d and #606060 rather than at v2's value alone.
+All three clear 4.5:1 against every surface in their own theme. The light
+tiers are set so the ladder steps down by the same contrast in both themes:
+`{colors.ink-muted}` #2c2c2c reads 13.15:1 on the light canvas against 14.28:1
+on the dark one, and `{colors.ink-subtle}` #606060 reads 5.92:1 against 6.42:1.
+On `{colors.surface-1}` the pairs are 13.97 and 13.04, 6.29 and 5.86.
 
 ## Typography
 
@@ -823,7 +826,7 @@ text printed in `white` stays legible.
   across seven distinct values; the merged vocabulary needs seventeen roles.
   `{colors.surface-3}` #e4e4e4, `{colors.surface-4}` #dbdbdb,
   `{colors.hairline-strong}` #c6c6c6, `{colors.hairline-tertiary}` #b3b3b3,
-  `{colors.ink-muted}` #4d4d4d, `{colors.primary-hover}` #fa6a07 and
+  `{colors.ink-muted}` #2c2c2c, `{colors.primary-hover}` #fa6a07 and
   `{colors.primary-focus}` #d65905 were constructed to satisfy the component set
   and the contrast floor. They have not been looked at on a screen.
 - **The light ladder is not monotonic.** `surface-1` is a lift above canvas and
