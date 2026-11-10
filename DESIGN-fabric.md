@@ -475,6 +475,32 @@ their label in the accent. Neither can now.
 - **On Primary** ({colors.on-primary}) #171717: the ink, for text on all three
   fills. 5.51:1, 6.09:1 and 4.52:1 respectively.
 
+#### On dawn, the accent never stands alone
+
+Every accent step clears 3:1 on every dusk ground. On the light grounds only
+`{colors.primary-focus}` clears it everywhere:
+
+| Role | canvas #f4f4f4 | surface-1 #ffffff | surface-2 #e5e5e5 | on-primary |
+|---|---|---|---|---|
+| primary #ef6306 | 2.96 | 3.25 | 2.58 | 5.51 |
+| primary-hover #fa6a07 | 2.68 | 2.95 | 2.34 | 6.09 |
+| primary-focus #d65905 | 3.61 | 3.97 | 3.15 | 4.52 |
+
+The 3:1 floor for an object applies where the object alone identifies a
+control or its state. So the rule is about what the accent is asked to carry,
+not its value:
+
+- **A fill always carries its label.** The label identifies the control, so
+  the number that counts is `{colors.on-primary}` on the fill, 4.52:1 or better.
+- **A focus ring is `{colors.primary-focus}`**, the one step that clears 3:1 on
+  every light ground.
+- **Icons and type are ink.** An icon in the accent is a word in the accent.
+- **An edge or underline is emphasis, not identity.** It may sit under 3:1
+  because the element is already identified by its ink label.
+
+Darkening the hue until every step cleared every light ground would need a
+visibly browner orange on both themes, which trades the signal for a number.
+
 The rule that does not vary is how little of it there is: CTA, emphasis edge,
 focus, selection. Both source systems policed that, and it is the one piece of
 color discipline the merge inherited unchanged from both.
@@ -795,8 +821,7 @@ text printed in `white` stays legible.
 - Alternate surface levels down the page. Two adjacent tiles on the same level
   read as one tile.
 - Keep the accent scarce: CTA, emphasis edge, focus, selection, and one promoted
-  link where a tile demands it. That rule is the same in both themes even though
-  the hue is not.
+  link where a tile demands it. That rule is the same in both themes.
 - Pill-round every CTA. The radius is the affordance.
 - Hold `{rounded.none}` on tiles and on anything meeting the viewport edge.
 - Let the 80px tile padding be the whitespace.
@@ -844,11 +869,10 @@ text printed in `white` stays legible.
   at a CTA wearing it.
 - **`{colors.primary}` reads 2.96:1 on the light canvas, under the 3:1 floor
   for an object.** The canvas was darkened to #f4f4f4 so the light ladder steps
-  like the dark one, and that was chosen over the accent's margin. On
-  `{colors.surface-1}` it reads 3.25:1, so an accent edge or ring is safest on
-  a lifted surface. It misses the 4.5:1 floor for a word on every light ground.
-  The constraint is documented rather than resolved: no component may set type in
-  the accent on light, and nothing enforces that beyond this sentence.
+  like the dark one, and that was chosen over the accent's margin. It is
+  contained by a usage rule rather than a value: see "On dawn, the accent never
+  stands alone" under Accent. The site enforces the rule in a test; each
+  integration has to hold it itself.
 - **The dark theme gets a brighter accent than it needs and the light theme a
   dimmer one than it wants.** One value on two grounds cannot be optimal on
   either — 6.42:1 against near-black is more separation than a fill needs, and
