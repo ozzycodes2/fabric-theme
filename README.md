@@ -1,5 +1,8 @@
 <p align="center">
-  <img src="assets/wordmark.svg" alt="fabric" width="280">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/wordmark-dusk.svg">
+    <img src="assets/wordmark.svg" alt="fabric" width="280">
+  </picture>
 </p>
 
 <p align="center">Braun-quiet colour for the classy minimalist</p>
