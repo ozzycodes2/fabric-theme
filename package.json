@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "build": "node src/build.ts",
-    "test": "vitest run --coverage"
+    "test": "vitest run --coverage",
+    "logo": "node scripts/logo.mjs"
   },
   "dependencies": {
     "yaml": "^2.9.1"
@@ -14,6 +15,7 @@
   "devDependencies": {
     "@types/node": "^26.6.6",
     "@vitest/coverage-v8": "^5.1.0",
+    "fontkit": "^2.0.4",
     "typescript": "^7.0.2",
     "vitest": "^5.1.0"
   }

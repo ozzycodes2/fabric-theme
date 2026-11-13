@@ -26,6 +26,12 @@ dusk and dawn.
 - [fabric-ghostty](https://github.com/ozzycodes2/fabric-ghostty): the Ghostty
   integration
 
+## Brand
+
+The wordmark and the icon mark live in [assets/](assets); the rules for using
+them are under Typography → Wordmark in the design document. Regenerate them
+after a palette change with `pnpm logo path/to/InterVariable.ttf`.
+
 ## Contributing
 
 To add an integration, use the submission form on the

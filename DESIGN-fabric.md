@@ -571,6 +571,28 @@ tracking and line heights; v2's weight on the three display steps.
   its five-step scale gained `headline`, `subhead` and `eyebrow`. Nothing in v2
   referenced a size the merged scale cannot express.
 
+### Wordmark
+
+"fabric", lowercase, in Inter at weight 700 and its display cut (`opsz` 32),
+tracked -0.03em. The i is a dotless ı whose tittle is a `{colors.primary}`
+square, 0.15em a side, its top 0.734em above the baseline and centred on the
+ı's advance; that is where Inter's own dot sits. The square is a fill, so the
+accent rule holds: the letters stay in `{colors.ink}`.
+
+It is the one place the type breaks the scale. 700 is heavier than any step,
+because the name stands alone and has to read as a mark, not a heading.
+
+- **Use the assets, not live text,** wherever the font cannot be guaranteed:
+  READMEs, link previews, slides. `assets/wordmark.svg` carries dawn's ink for
+  light grounds, `assets/wordmark-dusk.svg` dusk's for dark ones. Both are
+  outlines; `pnpm logo` regenerates them from the palette.
+- **Under 48px, use the mark.** `assets/mark.svg` is the wordmark's f with the
+  square beside it at tittle height, on the dusk canvas tile, the same on light
+  and dark chrome. `assets/mark-square.svg` is full-bleed for platforms that
+  round icons themselves.
+- **Never** recolour the square, set the name in another weight, or put a
+  regular i back.
+
 ## Layout
 
 ### Spacing System
