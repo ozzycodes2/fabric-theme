@@ -1,13 +1,13 @@
 ---
 version: alpha
 name: Fabric
-description: "One system in two polarities. Mine's near-black ground and Mine v2's light ground are the same seventeen color roles at two sets of values, so a component is declared once and renders on either. The accent is the exception: all four of its roles are shared, replacing Mine's lavender and v2's signal red with one signal orange, #ef6306. Both inherited accents were legible on both grounds, so the reason for one value is not contrast — it is that a brand hue which changes with the reader's OS setting is not one brand, and that is the only conflict in the merge neither source could settle. The orange is bright enough to carry dark text rather than white, which is why `{colors.on-primary}` is #171717 and why the accent is now a fill, an edge and a ring but never type. The component vocabulary is the union of both: Apple's pill CTAs, edge-to-edge product tiles and frosted sub-nav from Mine, v2's page, prose, rule, avatar and permanently-underlined link, with the four overlapping pairs collapsed to one entry each. Type is Mine's eight steps on Inter with v2's weights on the three display steps, since 500 was chosen for a dark ground and 600 has to survive both."
+description: "One system in two polarities. Mine's near-black ground and Mine v2's light ground are the same seventeen color roles at two sets of values, so a component is declared once and renders on either. The accent is the exception: all four of its roles are shared, replacing Mine's lavender and v2's signal red with one signal orange, #ff6a13. Both inherited accents were legible on both grounds, so the reason for one value is not contrast — it is that a brand hue which changes with the reader's OS setting is not one brand, and that is the only conflict in the merge neither source could settle. The orange is bright enough to carry dark text rather than white, which is why `{colors.on-primary}` is #171717 and why the accent is now a fill, an edge and a ring but never type. The component vocabulary is the union of both: Apple's pill CTAs, edge-to-edge product tiles and frosted sub-nav from Mine, v2's page, prose, rule, avatar and permanently-underlined link, with the four overlapping pairs collapsed to one entry each. Type is Mine's eight steps on Inter with v2's weights on the three display steps, since 500 was chosen for a dark ground and 600 has to survive both."
 themes:
   dusk:
-    primary: "#ef6306"
+    primary: "#ff6a13"
     on-primary: "#171717"
-    primary-hover: "#fa6a07"
-    primary-focus: "#d65905"
+    primary-hover: "#ff7422"
+    primary-focus: "#e35400"
     ink: "#f7f8f8"
     ink-muted: "#d0d6e0"
     ink-subtle: "#8a8f98"
@@ -22,10 +22,10 @@ themes:
     inverse-canvas: "#ffffff"
     inverse-ink: "#000000"
   dawn:
-    primary: "#ef6306"
+    primary: "#ff6a13"
     on-primary: "#171717"
-    primary-hover: "#fa6a07"
-    primary-focus: "#d65905"
+    primary-hover: "#ff7422"
+    primary-focus: "#e35400"
     ink: "#171717"
     ink-muted: "#2c2c2c"
     ink-subtle: "#606060"
@@ -392,7 +392,7 @@ entry below, which is the check v2 brought to the merge and the one Mine failed.
 **Key characteristics:**
 - Two themes, one token vocabulary. `dusk` is Mine's near-black ladder, `dawn`
   is v2's off-white ground extended to four surface levels.
-- One accent, shared: signal orange #ef6306, carrying dark text. Scarce in both
+- One accent, shared: signal orange #ff6a13, carrying dark text. Scarce in both
   themes — CTA, emphasis edge, focus, selection. Never type.
 - Apple's pill CTAs at `{rounded.full}`, edge-to-edge tiles at `{rounded.none}`.
 - Eight type steps on Inter, 40px display to 12px eyebrow, plus SF Mono.
@@ -405,7 +405,7 @@ entry below, which is the check v2 brought to the merge and the one Mine failed.
 | Conflict | Resolution | Why |
 |---|---|---|
 | Display weight: Mine 500, v2 600 | 600 on display, headline, heading | Mine chose 500 for a dark ground and v2 600 for a light one. One scale has to survive both, and 600 is the value that does — 500 is the one that goes thin on #010102, which was Mine's own stated fear |
-| Accent hue: lavender vs signal red | Neither — #ef6306 in both themes | The only role where the two lineages disagreed about hue rather than about brightness, which makes it the only one no measurement can settle: both clear 4:1 on both grounds, so neither is wrong. What is wrong is shipping both, because a hue that changes with the reader's OS setting is not a brand. Between the two, v2's red is already an orange-red descended from Braun's lit-indicator and Mine's lavender is product-chrome blue with no claim on a personal site, so the shared value is the warm one — taken up to full saturation, where a signal color belongs, rather than down to the luminance that would have let it keep setting type |
+| Accent hue: lavender vs signal red | Neither — #ff6a13 in both themes | The only role where the two lineages disagreed about hue rather than about brightness, which makes it the only one no measurement can settle: both clear 4:1 on both grounds, so neither is wrong. What is wrong is shipping both, because a hue that changes with the reader's OS setting is not a brand. Between the two, v2's red is already an orange-red descended from Braun's lit-indicator and Mine's lavender is product-chrome blue with no claim on a personal site, so the shared value is the warm one — taken up to full saturation, where a signal color belongs, rather than down to the luminance that would have let it keep setting type |
 | `pill` and `full`, both 9999px | One token, `{rounded.full}` | Two names for one value is what v2's token check exists to catch. Mine's components were re-pointed |
 | Spacing names colliding at different values | Mine's eight names win | v2's `xs` 4 → `{spacing.xxs}`, `sm` 8 → `{spacing.xs}`, `xl` 40 → `{spacing.xxl}` 48, `section` 120 → `{spacing.section}` 80 |
 | v2's third-ink-tier ban | Three tiers, light values pulled down to clear it | `{colors.ink-subtle}` at #606060 measures 4.76:1 on `{colors.surface-4}`, the deepest light surface. v2's objection was to the value, not the tier |
@@ -437,7 +437,7 @@ either side were the wrong answer, and it is argued below.
 
 ### Accent
 
-Four roles, one hue, **signal orange #ef6306** at hsl(24 95% 48%), and all four
+Four roles, one hue, **signal orange #ff6a13** at hsl(22 100% 54%), and all four
 are shared — the accent is the only part of the palette that does not vary by
 theme.
 
@@ -455,25 +455,25 @@ text-capable accent would need — a signal color that has been darkened until i
 can set body type is no longer signaling.
 
 The consequence is the rule below it: **the accent carries dark text, and never
-is text.** #171717 on primary measures 5.51:1 and white measures 3.25:1, so
-`{colors.on-primary}` is the ink. And at 2.96:1 on the light canvas and 3.25:1 on
-`{colors.surface-1}` the accent is at most an object color, never a word, which
+is text.** #171717 on primary measures 6.25:1 and white measures 2.87:1, so
+`{colors.on-primary}` is the ink. And at 2.61:1 on the light canvas and 2.87:1 on
+`{colors.surface-1}` the accent is at most a fill or an edge, never a word, which
 is why `text-link-emphasis` is ink with an accent underline and
 `button-secondary-pill` is ink in an accent-edged capsule. Both used to set
 their label in the accent. Neither can now.
 
-- **Primary** ({colors.primary}) #ef6306: CTA fill, the pricing card's emphasis
-  edge, the link underline, the selection. 6.42:1 on the dark canvas, 2.96:1 on
+- **Primary** ({colors.primary}) #ff6a13: CTA fill, the pricing card's emphasis
+  edge, the link underline, the selection. 7.28:1 on the dark canvas, 2.61:1 on
   the light one — the asymmetry is real and it is the price of the saturation.
-- **Primary Hover** ({colors.primary-hover}) #fa6a07: the hovered and active CTA.
-  One step brighter, because every use is a fill under dark text and 6.09:1 is
+- **Primary Hover** ({colors.primary-hover}) #ff7422: the hovered and active CTA.
+  One step brighter, because every use is a fill under dark text and 6.64:1 is
   the best of the three.
-- **Primary Focus** ({colors.primary-focus}) #d65905: the focus ring and the
+- **Primary Focus** ({colors.primary-focus}) #e35400: the focus ring and the
   focused CTA's fill. The *darkest* step, and deliberately so — it is the only
   accent role that has to be seen against the ground rather than under text, and
-  3.61:1 on the light canvas is the best any step in this hue manages.
+  3.45:1 on the light canvas is the best any step in this hue manages.
 - **On Primary** ({colors.on-primary}) #171717: the ink, for text on all three
-  fills. 5.51:1, 6.09:1 and 4.52:1 respectively.
+  fills. 6.25:1, 6.64:1 and 4.72:1 respectively.
 
 #### On dawn, the accent never stands alone
 
@@ -482,16 +482,16 @@ Every accent step clears 3:1 on every dusk ground. On the light grounds only
 
 | Role | canvas #f4f4f4 | surface-1 #ffffff | surface-2 #e5e5e5 | on-primary |
 |---|---|---|---|---|
-| primary #ef6306 | 2.96 | 3.25 | 2.58 | 5.51 |
-| primary-hover #fa6a07 | 2.68 | 2.95 | 2.34 | 6.09 |
-| primary-focus #d65905 | 3.61 | 3.97 | 3.15 | 4.52 |
+| primary #ff6a13 | 2.61 | 2.87 | 2.28 | 6.25 |
+| primary-hover #ff7422 | 2.46 | 2.70 | 2.14 | 6.64 |
+| primary-focus #e35400 | 3.45 | 3.79 | 3.01 | 4.72 |
 
 The 3:1 floor for an object applies where the object alone identifies a
 control or its state. So the rule is about what the accent is asked to carry,
 not its value:
 
 - **A fill always carries its label.** The label identifies the control, so
-  the number that counts is `{colors.on-primary}` on the fill, 4.52:1 or better.
+  the number that counts is `{colors.on-primary}` on the fill, 4.72:1 or better.
 - **A focus ring is `{colors.primary-focus}`**, the one step that clears 3:1 on
   every light ground.
 - **Icons and type are ink.** An icon in the accent is a word in the accent.
@@ -664,8 +664,8 @@ bylines, figure captions.
 states live in `button-primary-focus` and `button-primary-active`.
 
 **`button-secondary-pill`** — `{colors.surface-1}` fill, `{colors.ink}` text,
-1px `{colors.primary}` edge. The accent is the border, not the label: at 3.25:1
-on `{colors.surface-1}` it is an object color, not a text color.
+1px `{colors.primary}` edge. The accent is the border, not the label: at 2.87:1
+on `{colors.surface-1}` it is emphasis, and the ink label identifies the button.
 
 **`button-inverse-utility`** — `{colors.inverse-canvas}` fill,
 `{colors.inverse-ink}` text, `{rounded.sm}`. The only element that inverts
@@ -856,27 +856,28 @@ text printed in `white` stays legible.
   `{colors.hairline}` #d3d3d3 replace v2's values to match the dark ladder's
   contrast steps. `{colors.surface-3}` #e1e1e1, `{colors.surface-4}` #e0e0e0,
   `{colors.hairline-strong}` #bebebe, `{colors.hairline-tertiary}` #b0b0b0,
-  `{colors.ink-muted}` #2c2c2c, `{colors.primary-hover}` #fa6a07 and
-  `{colors.primary-focus}` #d65905 were constructed to satisfy the component set
+  `{colors.ink-muted}` #2c2c2c, `{colors.primary-hover}` #ff7422 and
+  `{colors.primary-focus}` #e35400 were constructed to satisfy the component set
   and the contrast floor. They have not been looked at on a screen.
 - **The light ladder is not monotonic.** `surface-1` is a lift above canvas and
   `surface-2` through `-4` step down into it, where the dark ladder climbs
   steadily. A component that assumes "higher number means further from the
   ground" is right on dark and wrong on light.
-- **The accent is in neither source document.** #ef6306 was chosen to clear both
-  grounds, so unlike every other value in here it cannot be checked against a
-  system that shipped it. The argument for it is arithmetic; nobody has looked
-  at a CTA wearing it.
-- **`{colors.primary}` reads 2.96:1 on the light canvas, under the 3:1 floor
+- **The accent is in neither source document.** #ff6a13 was chosen by eye on
+  the site's dusk and dawn cards, replacing #ef6306, a slightly deeper step that
+  cleared 3:1 on `{colors.surface-1}`. Unlike every other value in here it
+  cannot be checked against a system that shipped it.
+- **`{colors.primary}` reads 2.61:1 on the light canvas, under the 3:1 floor
   for an object.** The canvas was darkened to #f4f4f4 so the light ladder steps
-  like the dark one, and that was chosen over the accent's margin. It is
+  like the dark one, and the brighter #ff6a13 was chosen over the margin #ef6306
+  had. It is
   contained by a usage rule rather than a value: see "On dawn, the accent never
   stands alone" under Accent. The site enforces the rule in a test; each
   integration has to hold it itself.
 - **The dark theme gets a brighter accent than it needs and the light theme a
   dimmer one than it wants.** One value on two grounds cannot be optimal on
-  either — 6.42:1 against near-black is more separation than a fill needs, and
-  2.96:1 against off-white is less than it should have. A per-theme pair would fix
+  either — 7.28:1 against near-black is more separation than a fill needs, and
+  2.61:1 against off-white is less than it should have. A per-theme pair would fix
   the measurements and reintroduce the two-brands problem the shared accent
   exists to solve.
 - **The three display steps moved from 500 to 600 and have not been seen on
