@@ -11,14 +11,14 @@ themes:
     ink: "#f7f8f8"
     ink-muted: "#d0d6e0"
     ink-subtle: "#8a8f98"
-    canvas: "#010102"
-    surface-1: "#0f1011"
-    surface-2: "#141516"
-    surface-3: "#18191a"
-    surface-4: "#191a1b"
-    hairline: "#23252a"
-    hairline-strong: "#34343a"
-    hairline-tertiary: "#3e3e44"
+    canvas: "#101214"
+    surface-1: "#1a1c1d"
+    surface-2: "#1e2021"
+    surface-3: "#212324"
+    surface-4: "#222425"
+    hairline: "#2b2d33"
+    hairline-strong: "#3b3b41"
+    hairline-tertiary: "#45454b"
     inverse-canvas: "#ffffff"
     inverse-ink: "#000000"
   dawn:
@@ -42,7 +42,7 @@ themes:
 
 terminal:
   dusk:
-    black: "#18191a"
+    black: "#212324"
     red: "#e04a3c"
     green: "#8db05a"
     yellow: "#f0b92a"
@@ -418,8 +418,10 @@ has a store hero, a configurator and a pricing grid in it.
 
 ## Colors
 
-Every role below exists in both themes. The dusk theme is Mine's grounds and
-inks unchanged. The dawn theme keeps two of v2's values at their original
+Every role below exists in both themes. The dusk theme is Mine's inks and
+Mine's ladder lifted onto `{colors.canvas}` #101214, hsl(210 12% 7%): the dawn
+canvas with its lightness mirrored. Each dark ground and rule keeps the hue,
+saturation and contrast step from the canvas it had on Mine's #010102. The dawn theme keeps two of v2's values at their original
 roles — `{colors.ink}` #171717 and `{colors.inverse-ink}` #ffffff. v2's canvas
 #f8f8f8, surface-1 #ffffff, surface-2 #ededed and hairline #d9d9d9 were re-set
 with the rest of the ladder, which mirrors the dark one: each light ground and
@@ -465,7 +467,7 @@ is why `text-link-emphasis` is ink with an accent underline and
 their label in the accent. Neither can now.
 
 - **Primary** ({colors.primary}) #ff6a13: CTA fill, the pricing card's emphasis
-  edge, the link underline, the selection. 7.28:1 on the dark canvas, 2.47:1 on
+  edge, the link underline, the selection. 6.55:1 on the dark canvas, 2.47:1 on
   the light one — the asymmetry is real and it is the price of the saturation.
 - **Primary Hover** ({colors.primary-hover}) #ff7422: the hovered and active CTA.
   One step brighter, because every use is a fill under dark text and 6.64:1 is
@@ -543,10 +545,11 @@ through `-4` step down into it. That asymmetry is real and is in Known Gaps.
 - **Ink Subtle** ({colors.ink-subtle}): footer links, capsule labels, metadata.
 
 All three clear 4.5:1 against every surface in their own theme. The light
-tiers are set so the ladder steps down by the same contrast in both themes:
-`{colors.ink-muted}` #2c2c2c reads 12.01:1 on the light canvas against 14.28:1
-on the dark one, and `{colors.ink-subtle}` #606060 reads 5.41:1 against 6.42:1.
-On `{colors.surface-1}` the pairs are 13.13 and 13.04, 5.91 and 5.86.
+tiers step down by close to the same contrast as the dark ones:
+`{colors.ink-muted}` #2c2c2c reads 12.01:1 on the light canvas against 12.85:1
+on the dark one, and `{colors.ink-subtle}` #606060 reads 5.41:1 against 5.78:1.
+On `{colors.surface-1}` the pairs are 13.13 and 11.71, 5.91 and 5.26. The
+lowest dark pair is ink-subtle on `{colors.surface-4}`, 4.80:1.
 
 ## Typography
 
@@ -634,7 +637,7 @@ deliberate weight.
 | focus | 2px `{colors.primary-focus}` at 2px offset | Focused button or input |
 
 **There are no shadow tokens.** On the dark ground that is a constraint — a
-shadow on #010102 is invisible. On the light ground it is a choice: shadows work
+shadow on #101214 is invisible. On the light ground it is a choice: shadows work
 there, and omitting them keeps one depth mechanism across both themes instead of
 one per theme. Depth is surface level plus a 1px edge, which is honest about
 being a flat medium.
@@ -885,13 +888,17 @@ text printed in `white` stays legible.
   `{colors.primary-hover}` #ff7422 and `{colors.primary-focus}` #de5100 were
   constructed to satisfy the component set and the contrast floor.
 - **The light surfaces step less than the dark ones.** Dusk's surface-2 to
-  surface-4 sit 1.14, 1.19 and 1.20:1 from the canvas; dawn's sit 1.09, 1.12
+  surface-4 sit 1.15, 1.19 and 1.20:1 from the canvas; dawn's sit 1.09, 1.12
   and 1.14:1. Any darker and `{colors.primary-focus}` would drop under 3:1 on
   them, and it cannot darken further without its label dropping under 4.5:1.
   The hairlines carry the full mirrored steps.
 - **The light inks are pure gray.** Every other neutral in both themes carries
   the cool cast; `{colors.ink}`, `{colors.ink-muted}` and `{colors.ink-subtle}`
   on dawn do not.
+- **The dark canvas mirrors dawn's lightness, not its contrast.** #101214 is
+  1.12:1 from black where #eceef0 is 1.16:1 from white; #141618 would match
+  the contrast. The lighter canvas also costs every dark ratio: the accent
+  falls from 7.28:1 to 6.55:1 and terminal red to 4.66:1.
 - **The light ladder is not monotonic.** `surface-1` is a lift above canvas and
   `surface-2` through `-4` step down into it, where the dark ladder climbs
   steadily. A component that assumes "higher number means further from the
@@ -909,12 +916,12 @@ text printed in `white` stays legible.
   integration has to hold it itself.
 - **The dark theme gets a brighter accent than it needs and the light theme a
   dimmer one than it wants.** One value on two grounds cannot be optimal on
-  either — 7.28:1 against near-black is more separation than a fill needs, and
+  either — 6.55:1 against near-black is more separation than a fill needs, and
   2.47:1 against off-white is less than it should have. A per-theme pair would fix
   the measurements and reintroduce the two-brands problem the shared accent
   exists to solve.
 - **The three display steps moved from 500 to 600 and have not been seen on
-  #010102.** The weight was chosen to survive both grounds by argument, not by
+  #101214.** The weight was chosen to survive both grounds by argument, not by
   looking.
 - **`{spacing.md}` 17px is off the 4px grid.** Inherited from Apple through
   Mine, and it stays because `code-block` and the merge table both reference it.
