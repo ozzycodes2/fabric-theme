@@ -29,7 +29,7 @@ themes:
     ink: "#171717"
     ink-muted: "#2c2c2c"
     ink-subtle: "#606060"
-    canvas: "#f4f4f4"
+    canvas: "#f1f3f4"
     surface-1: "#ffffff"
     surface-2: "#e5e5e5"
     surface-3: "#e1e1e1"
@@ -424,7 +424,7 @@ roles — `{colors.surface-1}` #ffffff, `{colors.ink}` #171717 and
 `{colors.inverse-ink}` #ffffff. v2's canvas #f8f8f8, surface-2 #ededed and
 hairline #d9d9d9 were re-set with the rest of the ladder, so each light surface
 and rule sits the same contrast from its canvas as its dark counterpart:
-`{colors.canvas}` #f4f4f4 puts `{colors.surface-1}` 1.10:1 above it, as on dusk.
+`{colors.canvas}` #f1f3f4 puts `{colors.surface-1}` 1.11:1 above it, as on dusk.
 Beyond that there is one move and seven additions. The
 move is v2's muted ink, now #606060, which the merged ramp needed a darker tier above, so it
 went from `ink-muted` to `{colors.ink-subtle}`. The additions are `surface-3`,
@@ -456,14 +456,14 @@ can set body type is no longer signaling.
 
 The consequence is the rule below it: **the accent carries dark text, and never
 is text.** #171717 on primary measures 6.25:1 and white measures 2.87:1, so
-`{colors.on-primary}` is the ink. And at 2.61:1 on the light canvas and 2.87:1 on
+`{colors.on-primary}` is the ink. And at 2.58:1 on the light canvas and 2.87:1 on
 `{colors.surface-1}` the accent is at most a fill or an edge, never a word, which
 is why `text-link-emphasis` is ink with an accent underline and
 `button-secondary-pill` is ink in an accent-edged capsule. Both used to set
 their label in the accent. Neither can now.
 
 - **Primary** ({colors.primary}) #ff6a13: CTA fill, the pricing card's emphasis
-  edge, the link underline, the selection. 7.28:1 on the dark canvas, 2.61:1 on
+  edge, the link underline, the selection. 7.28:1 on the dark canvas, 2.58:1 on
   the light one — the asymmetry is real and it is the price of the saturation.
 - **Primary Hover** ({colors.primary-hover}) #ff7422: the hovered and active CTA.
   One step brighter, because every use is a fill under dark text and 6.64:1 is
@@ -471,7 +471,7 @@ their label in the accent. Neither can now.
 - **Primary Focus** ({colors.primary-focus}) #e35400: the focus ring and the
   focused CTA's fill. The *darkest* step, and deliberately so — it is the only
   accent role that has to be seen against the ground rather than under text, and
-  3.45:1 on the light canvas is the best any step in this hue manages.
+  3.41:1 on the light canvas is the best any step in this hue manages.
 - **On Primary** ({colors.on-primary}) #171717: the ink, for text on all three
   fills. 6.25:1, 6.64:1 and 4.72:1 respectively.
 
@@ -480,11 +480,11 @@ their label in the accent. Neither can now.
 Every accent step clears 3:1 on every dusk ground. On the light grounds only
 `{colors.primary-focus}` clears it everywhere:
 
-| Role | canvas #f4f4f4 | surface-1 #ffffff | surface-2 #e5e5e5 | on-primary |
+| Role | canvas #f1f3f4 | surface-1 #ffffff | surface-2 #e5e5e5 | on-primary |
 |---|---|---|---|---|
-| primary #ff6a13 | 2.61 | 2.87 | 2.28 | 6.25 |
-| primary-hover #ff7422 | 2.46 | 2.70 | 2.14 | 6.64 |
-| primary-focus #e35400 | 3.45 | 3.79 | 3.01 | 4.72 |
+| primary #ff6a13 | 2.58 | 2.87 | 2.28 | 6.25 |
+| primary-hover #ff7422 | 2.43 | 2.70 | 2.14 | 6.64 |
+| primary-focus #e35400 | 3.41 | 3.79 | 3.01 | 4.72 |
 
 The 3:1 floor for an object applies where the object alone identifies a
 control or its state. So the rule is about what the accent is asked to carry,
@@ -541,8 +541,8 @@ through `-4` step down into it. That asymmetry is real and is in Known Gaps.
 
 All three clear 4.5:1 against every surface in their own theme. The light
 tiers are set so the ladder steps down by the same contrast in both themes:
-`{colors.ink-muted}` #2c2c2c reads 12.70:1 on the light canvas against 14.28:1
-on the dark one, and `{colors.ink-subtle}` #606060 reads 5.72:1 against 6.42:1.
+`{colors.ink-muted}` #2c2c2c reads 12.55:1 on the light canvas against 14.28:1
+on the dark one, and `{colors.ink-subtle}` #606060 reads 5.65:1 against 6.42:1.
 On `{colors.surface-1}` the pairs are 13.97 and 13.04, 6.29 and 5.86.
 
 ## Typography
@@ -852,9 +852,10 @@ text printed in `white` stays legible.
 
 - **Ten light values are derived, not imported.** v2 declared eight colors
   across seven distinct values; the merged vocabulary needs seventeen roles.
-  `{colors.canvas}` #f4f4f4, `{colors.surface-2}` #e5e5e5 and
+  `{colors.canvas}` #f1f3f4, `{colors.surface-2}` #e5e5e5 and
   `{colors.hairline}` #d3d3d3 replace v2's values to match the dark ladder's
-  contrast steps. `{colors.surface-3}` #e1e1e1, `{colors.surface-4}` #e0e0e0,
+  contrast steps; the canvas alone carries a slight cool cast, chosen by eye,
+  while every other light neutral is pure gray. `{colors.surface-3}` #e1e1e1, `{colors.surface-4}` #e0e0e0,
   `{colors.hairline-strong}` #bebebe, `{colors.hairline-tertiary}` #b0b0b0,
   `{colors.ink-muted}` #2c2c2c, `{colors.primary-hover}` #ff7422 and
   `{colors.primary-focus}` #e35400 were constructed to satisfy the component set
@@ -867,8 +868,8 @@ text printed in `white` stays legible.
   the site's dusk and dawn cards, replacing #ef6306, a slightly deeper step that
   cleared 3:1 on `{colors.surface-1}`. Unlike every other value in here it
   cannot be checked against a system that shipped it.
-- **`{colors.primary}` reads 2.61:1 on the light canvas, under the 3:1 floor
-  for an object.** The canvas was darkened to #f4f4f4 so the light ladder steps
+- **`{colors.primary}` reads 2.58:1 on the light canvas, under the 3:1 floor
+  for an object.** The canvas was darkened and cooled to #f1f3f4 so the light ladder steps
   like the dark one, and the brighter #ff6a13 was chosen over the margin #ef6306
   had. It is
   contained by a usage rule rather than a value: see "On dawn, the accent never
@@ -877,7 +878,7 @@ text printed in `white` stays legible.
 - **The dark theme gets a brighter accent than it needs and the light theme a
   dimmer one than it wants.** One value on two grounds cannot be optimal on
   either — 7.28:1 against near-black is more separation than a fill needs, and
-  2.61:1 against off-white is less than it should have. A per-theme pair would fix
+  2.58:1 against off-white is less than it should have. A per-theme pair would fix
   the measurements and reintroduce the two-brands problem the shared accent
   exists to solve.
 - **The three display steps moved from 500 to 600 and have not been seen on
